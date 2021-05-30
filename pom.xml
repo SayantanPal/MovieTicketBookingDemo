@@ -15,9 +15,10 @@
 	<groupId>com.controller</groupId>
 	<artifactId>MovieTicketBookingDemo</artifactId>
 	
+	
 	<version>0.0.1-SNAPSHOT</version>
 	<!-- Optional -->
-	<packaging>jar</packaging>
+	<packaging>war</packaging>
 	
 	
 	
