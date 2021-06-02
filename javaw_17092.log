@@ -1,0 +1,9 @@
+---
+VM version: Jul  9 2020 21:23:39 - 81_REL - optU - windows amd64 - 6 - bas2:319926 (mixed mode)
+
+Time:2021-06-0222:14:51
+Pid: 17092
+Hostname: W-F7R7N13
+current dir: C:\Users\I524773\eclipse-workspace\MovieTicketBookingDemo
+---
+   :    [34184] 22:14:51 ***ERROR (:0): Java assert: "expected:<1250.0> but was:<0.0>" in org.junit.Assert.fail(Assert.java:89)

@@ -1,38 +1,82 @@
 package com.controller.MovieTicketBooking;
 
-import junit.framework.Test;
-import junit.framework.TestCase;
-import junit.framework.TestSuite;
+import static org.junit.Assert.*;
 
-/**
- * Unit test for simple App.
- */
+import org.junit.Before;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.junit.runners.JUnit4;
+import org.springframework.test.context.junit4.SpringRunner;
+
+import com.model.Ticket;
+import com.service.TicketService;
+
+@RunWith(JUnit4.class)
 public class AppTest 
-    extends TestCase
+    //extends TestCase
 {
-    /**
-     * Create the test case
-     *
-     * @param testName name of the test case
-     */
-    public AppTest( String testName )
-    {
-        super( testName );
-    }
+	TicketService cut_ticketService = null;
+	Ticket doc_testTicket = null;
+	
+	@Before
+	public void setup()
+	{
+		cut_ticketService = new TicketService(); //Code Under Test
+		doc_testTicket = new Ticket(); // Dependent On Component
+	}
 
-    /**
-     * @return the suite of tests being tested
-     */
-    public static Test suite()
-    {
-        return new TestSuite( AppTest.class );
+    @Test
+    public void testCalculateTotalCostForKing()
+    {		
+    	doc_testTicket.setCircleType("King");
+    	doc_testTicket.setNoOfTickets(1);
+    	double totalTicketCost = this.cut_ticketService.calculateTotalCost(doc_testTicket);
+        assertEquals(150.00, totalTicketCost, 0);
     }
-
-    /**
-     * Rigourous Test :-)
-     */
-    public void testApp()
+    
+    @Test
+    public void testCalculateTotalCostForQueen()
     {
-        assertTrue( true );
+    	doc_testTicket.setCircleType("Queen");
+    	doc_testTicket.setNoOfTickets(1);
+    	double totalTicketCost = cut_ticketService.calculateTotalCost(doc_testTicket);
+        assertEquals(250.00, totalTicketCost, 0);
     }
+    
+    @Test
+    public void testCalculateTotalCostForKing_tktno_0()
+    {		
+    	doc_testTicket.setCircleType("King");
+    	doc_testTicket.setNoOfTickets(0);
+    	double totalTicketCost = cut_ticketService.calculateTotalCost(doc_testTicket);
+        assertEquals(0.00, totalTicketCost, 0);
+    }
+    
+    @Test
+    public void testCalculateTotalCostForQueen_tktno_0()
+    {
+    	doc_testTicket.setCircleType("Queen");
+    	doc_testTicket.setNoOfTickets(0);
+    	double totalTicketCost = cut_ticketService.calculateTotalCost(doc_testTicket);
+        assertEquals(0.00, totalTicketCost, 0);
+    }
+    
+    @Test
+    public void testCalculateTotalCostForKing_tktno_5()
+    {		
+    	doc_testTicket.setCircleType("King");
+    	doc_testTicket.setNoOfTickets(5);
+    	double totalTicketCost = cut_ticketService.calculateTotalCost(doc_testTicket);
+        assertEquals(750.00, totalTicketCost, 0);
+    }
+    
+    @Test
+    public void testCalculateTotalCostForQueen_tktno_5()
+    {
+    	doc_testTicket.setCircleType("Queen");
+    	doc_testTicket.setNoOfTickets(5);
+    	double totalTicketCost = cut_ticketService.calculateTotalCost(doc_testTicket);
+        assertEquals(1250.00, totalTicketCost, 0);
+    }
+    
 }
