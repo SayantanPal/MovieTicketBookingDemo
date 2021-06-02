@@ -6,7 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.web.support.SpringBootServletInitializer;
 
 @SpringBootApplication(scanBasePackages={"com.*"})
-public class MovieTicketBookingDemoApplication extends SpringBootServletInitializer
+public class MovieTicketBookingDemoApplication //extends SpringBootServletInitializer
 {//Change Class name
 
 	public static void main(String[] args) {
