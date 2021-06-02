@@ -61,7 +61,8 @@ public class TicketController {
 	 
 	 */
 	
-	@RequestMapping(value = "/showPage", method = RequestMethod.GET)
+
+	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String showPage(@ModelAttribute("ticket") Ticket ticket) {
 		//model.addAttribute("ticket", new Ticket());
 		return "showpage";
