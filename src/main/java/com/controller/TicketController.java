@@ -11,7 +11,9 @@ import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 
 import com.model.*;
@@ -62,11 +64,18 @@ public class TicketController {
 	 */
 	
 
-	@RequestMapping(value = "/", method = RequestMethod.GET)
+	@RequestMapping(value = "/showPage", method = RequestMethod.GET)
 	public String showPage(@ModelAttribute("ticket") Ticket ticket) {
 		//model.addAttribute("ticket", new Ticket());
 		return "showpage";
 	}
+	
+	/*@GetMapping("/hello")
+	@ResponseBody
+	public String showHello()
+	{
+		return "hello";
+	}*/
 	
 	//Redirect the user to result.jsp page with a message "Your total cost is Rs.<totalCost>/- "
 	

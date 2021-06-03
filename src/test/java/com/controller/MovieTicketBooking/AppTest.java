@@ -79,4 +79,13 @@ public class AppTest
         assertEquals(1250.00, totalTicketCost, 0);
     }
     
+    @Test
+    public void testCalculateTotalCostForDummy()
+    {
+    	doc_testTicket.setCircleType("Dummy");
+    	doc_testTicket.setNoOfTickets(10);
+    	double totalTicketCost = cut_ticketService.calculateTotalCost(doc_testTicket);
+        assertEquals(0.00, totalTicketCost, 0);
+    }
+    
 }
